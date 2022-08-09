@@ -11,6 +11,7 @@
 | first_name          | string | null: false               |
 | last_name_spelling  | string | null: false               |
 | first_name_spelling | string | null: false               |
+| birthday            | date   | null: false               |
 
 ### Association
 
@@ -23,13 +24,13 @@
 | --------------- | ---------- | ------------------------------ |
 | name            | string     | null: false                    |
 | content         | text       | null: false                    |
-| category        | string     | null: false                    |
-| condition       | string     | null: false                    |
-| delivery_charge | string     | null: false                    |
-| prefecture      | string     | null: false                    |
-| days            | string     | null: false                    |
-| price           | string     | null: false                    |
-| user_id         | references | null: false, foreign_key: true |
+| category        | integer    | null: false                    |
+| condition       | integer    | null: false                    |
+| delivery_charge | integer    | null: false                    |
+| prefecture      | integer    | null: false                    |
+| take            | integer    | null: false                    |
+| price           | integer    | null: false                    |
+| user            | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -40,8 +41,8 @@
 
 | Column  | Type       | Options                        |
 | ------- | ---------- | ------------------------------ |
-| user_id | references | null: false, foreign_key: true |
-| item_id | references | null: false, foreign_key: true |
+| user    | references | null: false, foreign_key: true |
+| item    | references | null: false, foreign_key: true |
 
 ### Association
 
@@ -55,9 +56,9 @@
 | post_code | string     | null: false                    |
 | city      | string     | null: false                    |
 | address   | string     | null: false                    |
-| building  | string     | null: false                    |
+| building  | string     |                                |
 | phone     | string     | null: false                    |
-| order_id  | references | null: false, foreign_key: true |
+| order     | references | null: false, foreign_key: true |
 
 ### Association
 
