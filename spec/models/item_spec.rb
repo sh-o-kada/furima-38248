@@ -42,6 +42,11 @@ RSpec.describe Item, type: :model do
         @item.valid?
         expect(@item.errors.full_messages).to include("Delivery charge を選択してください")
       end
+      it "prefecture_idが空(未選択)では登録できない" do
+        @item.prefecture_id = "1"
+        @item.valid?
+        expect(@item.errors.full_messages).to include("Prefecture を選択してください")
+      end
       it "take_idが空(未選択)では登録できない" do
         @item.take_id = "1"
         @item.valid?
@@ -66,6 +71,11 @@ RSpec.describe Item, type: :model do
         @item.price = "10000000"
         @item.valid?
         expect(@item.errors.full_messages).to include("Price には300~9,999,999の半角数字で入力してください")
+      end
+      it "userが存在しないと登録ができない" do
+        @item.user = nil
+        @item.valid?
+        expect(@item.errors.full_messages).to include("User must exist")
       end
     end
   end
