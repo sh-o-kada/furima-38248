@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to :prefecture
   belongs_to :take
   has_one_attached :image
+  has_one :order
 
   validates :name, :content, :image, presence: true
   validates :category_id, :condition_id, :delivery_charge_id, :prefecture_id, :take_id, presence: true,
