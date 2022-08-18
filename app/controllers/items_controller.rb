@@ -23,7 +23,11 @@ class ItemsController < ApplicationController
   end
 
   def edit
-    if @item.user != current_user
+    if @item.order.blank?
+      if @item.user != current_user
+        redirect_to root_path
+      end
+    else
       redirect_to root_path
     end
   end
